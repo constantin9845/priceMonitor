@@ -31,6 +31,7 @@ class Data:
     # All data for initial setup
     def return_basic(self):
         arr = [
+               str(self.usd['date']),
                str(self.usd['usd']['cad'])[:6],  #cad price in usd
                str(self.usd['usd']['krw'])[:6],  # krw price in usd
                str(self.usd['usd']['eur'])[:6],  # eur price in usd
