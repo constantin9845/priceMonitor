@@ -28,5 +28,18 @@ class Data:
 
         return usd, gold, btc
 
+    # All data for initial setup
+    def return_basic(self):
+        arr = [
+               str(self.usd['usd']['cad'])[:6],  #cad price in usd
+               str(self.usd['usd']['krw'])[:6],  # krw price in usd
+               str(self.usd['usd']['eur'])[:6],  # eur price in usd
+               str(self.btc['btc']['usd'])[:6],  # btc price in usd
+               str(self.gold['xau']['usd'])[:5], # gold price in usd
+               ]
+
+
+        return arr
+
 #DATE = usd['date']
 #KRW_PRICE = usd['usd']['krw']

@@ -7,8 +7,13 @@ from data import Data
 
 class App:
     def __init__(self, root):
+
+        # create data object
+        data = Data()
+        t = data.return_basic()
+
         self.root = root
-        self.root.title("My Tkinter App")
+        self.root.title(t)
 
         # Create an instance of MyFrame from components module
         frame = Frame(self.root)
