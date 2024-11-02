@@ -1,20 +1,6 @@
-import requests
 import tkinter as tk
-from gui import Frame
-from data import Data
+from gui import App
 
-
-
-class App:
-    def __init__(self, root):
-
-        self.root = root
-        self.root.title("Your Report")
-        self.root.geometry("500x800")
-
-        # Create an instance of MyFrame from components module
-        frame = Frame(self.root)
-        frame.pack()
 
 if __name__ == "__main__":
     root = tk.Tk()
