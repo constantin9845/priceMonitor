@@ -1,6 +1,6 @@
 import os
 import platform
-from locale import currency
+import time
 
 import requests
 
@@ -136,7 +136,7 @@ if platform.system() == 'Linux':
     #command = "gnome-terminal -- bash -c 'for i in {1..1000}; do echo $i; sleep 1; clear; done'"
 
     command = f"gnome-terminal -- bash -c 'while true; do echo \"{format_output()}\"; sleep 3; clear; done'"
-    os.system(command)
+
 
 elif platform.system() == 'Windows':
     command = f"cmd /k \"for /L %i in (1,1,1000) do (echo {format_output()} & timeout /t 3 > nul & cls)\""
