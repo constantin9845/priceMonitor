@@ -1,19 +1,7 @@
-import tkinter as tk
-from gui import App
+import os
 
+# Command to open a new terminal and start counting
+command = "gnome-terminal -- bash -c 'for i in {1..1000}; do echo $i; sleep 1; done'"
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = App(root)
-    root.mainloop()
-
-
-
-
-# format of data
-
-# Latest <name> Price:
-# Date: 
-# Time: 
-# <name> Price: 
-# percentage up or down: 
+# Execute the command
+os.system(command)
