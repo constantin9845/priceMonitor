@@ -1,7 +1,14 @@
 import os
+import platform
 
-# Command to open a new terminal and start counting
-command = "gnome-terminal -- bash -c 'for i in {1..1000}; do echo $i; sleep 1; done'"
+command = ""
+
+if platform.system() == 'Linux':
+    # Command to open a new terminal and start counting
+    command = "gnome-terminal -- bash -c 'for i in {1..1000}; do echo $i; sleep 1; done'"
+elif platform.system() == 'Windows':
+    command = "start cmd /k \"for /L %i in (1,1,1000) do (echo %i & timeout /t 1)\""
+
 
 # Execute the command
 os.system(command)
