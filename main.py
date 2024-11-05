@@ -1,6 +1,8 @@
 import os
 import platform
+import tempfile
 import time
+import subprocess
 
 import requests
 
@@ -116,16 +118,17 @@ def get_crypto():
     return assetList, asset_names
 
 def format_output():
-    output = "BASE: USD"
-    output+="\nCurrencies\tAssets          \tCrypto"
+    output = "\n\nBASE USD\n"
+    output+='\nCurrencies Assets           Crypto'
 
     list1, names1 = get_currencies()
     list2, names2 = get_assets()
     list3, names3 = get_crypto()
 
     for i in range(0,6):
-        output+=f"\n{names1[i]} {list1[i]}\t{names2[i]} {list2[i]}\t{names3[i]} {list3[i]}"
+        output+=f'\n{names1[i]} {list1[i]} {names2[i]} {list2[i]} {names3[i]} {list3[i]}'
 
+    output+="\n"
     return output
 
 
@@ -136,14 +139,18 @@ if platform.system() == 'Linux':
     #command = "gnome-terminal -- bash -c 'for i in {1..1000}; do echo $i; sleep 1; clear; done'"
 
     command = f"gnome-terminal -- bash -c 'while true; do echo \"{format_output()}\"; sleep 3; clear; done'"
-
+    os.system(command)
 
 elif platform.system() == 'Windows':
-    command = f"cmd /k \"for /L %i in (1,1,1000) do (echo {format_output()} & timeout /t 3 > nul & cls)\""
+    output2 = format_output().split('\n')
+
+    os.system(f'start powershell.exe -NoExit -Command "while ($true) {{echo {format_output().split('\n')} ; Start-Sleep -Seconds 3 ; cls}}"')
+
+
 else:
     # max
     pass
 
 
-# Execute the command
-os.system(command)
+
+
